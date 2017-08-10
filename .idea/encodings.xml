@@ -2,6 +2,11 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/taotao-admin" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/taotao-admin" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/taotao-admin/taotao-admin-manager" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/taotao-bean" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/taotao-common" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/taotao-data" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/taotao-module" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/taotao-service/taotao-service-admin" charset="UTF-8" />
   </component>
 </project>
