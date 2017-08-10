@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Privilege Point 权限点 id : 权限点(权限点组）ID，由应用系统进行编号，用于应用系统与4A系统之间进行资源识别。 
+	name: 权限点(权限点组)显示名，用于在4A系统中展现资源含义。 url: 用于B/S系统，权限点所表示页面的url,在用户模块通过Acegi管理的应用系统权限时使用。可以为空。 
+	accesstype: 权限点（权限点组）访问方式，表示用户可以对权限点进行哪些可能操作，在accessType.xml文件中进行定义。 description: 
+	权限点（权限点组）描述，暂不使用，用于扩展 loadtype: 在授权界面,权限点的呈现方式 ０：表示普通权限点组； １：表示根权限点组； ２：表示下级权限点以弹出表格显现; 
+	3:表示下级权限点在初始化时不装载,而是在双击时将权限点添加到资源树 pptype: 用户于描述权限点的类型; 0:系统操作或不允许进行动态分组的节点; 
+	1: 根资源权限点组; 2: 资源组，在进行动态分组时，loadtype != 1 的资源组不显示。 3: NMS系统相关的资源类型,动态分组时所有节点归集在 
+	loadtype=1,pptype=3的根节点下. 4: SLA系统的资源. 注意：当loadtype == 1 时，其ppType的值应和组内权限点的ppType保持一致。 -->
+<pps>
+	<pp id="BMS" name="电池管理系统" url="" accesstype="" description=""
+		loadtype="1" pptype="0">
+
+		<pp id="BMS01" name="电池管理" url=""
+			accesstype="batterymanager" description="" loadtype="0" pptype="0">
+
+			<pp id="BMS0101" name="电池列表" url="api/batterymanager/toList"
+				accesstype="batterymanager" description="" loadtype="0" pptype="1">
+			</pp>
+
+		</pp>
+
+		<pp id="BMS02" name="电池组管理" url=""
+			accesstype="batterygroupmanager" description="" loadtype="0" pptype="0">
+
+			<pp id="BMS0201" name="电池组列表" url="api/batterygroupmanager/toList"
+				accesstype="batterygroupmanager" description="" loadtype="0" pptype="1">
+			</pp>
+
+		</pp>
+
+		<pp id="BMS03" name="电池组流转记录管理" url=""
+			accesstype="batteryrecordmanager" description="" loadtype="0" pptype="0">
+
+			<pp id="BMS0301" name="电池组流转记录" url="api/batteryrecordmanager/toList"
+				accesstype="batteryrecordmanager" description="" loadtype="0" pptype="1">
+			</pp>
+
+			<pp id="BMS0302" name="电池位置查询" url="api/batteryrecordmanager/locationToList"
+				accesstype="batteryrecordmanager" description="" loadtype="0" pptype="1">
+			</pp>
+
+		</pp>
+
+		<pp id="BMS04" name="电池数据管理" url=""
+			accesstype="batterydatamanager" description="" loadtype="0" pptype="0">
+
+			<pp id="BMS0401" name="电池历史数据查询" url="api/batterydata/toList"
+				accesstype="batterydatamanager" description="" loadtype="0" pptype="1">
+			</pp>
+			<pp id="BMS0402" name="电池实时告警" url="api/batteryAlarm/toBatteryAlarmDataList"
+				accesstype="batterydatamanager" description="" loadtype="0" pptype="1">
+			</pp>
+			<pp id="BMS0403" name="电池历史告警" url="api/batteryAlarm/toBatteryAlarmDataHistoryList"
+				accesstype="batterydatamanager" description="" loadtype="0" pptype="1">
+			</pp>
+			<pp id="BMS0404" name="车辆列表" url="api/vnmpvehicle/toList"
+				accesstype="batterydatamanager" description="" loadtype="0" pptype="1">
+			</pp>
+
+		</pp>
+
+		<pp id="BMS05" name="电池上下报文解析" url=""
+			accesstype="batterydatagrammanager" description="" loadtype="0" pptype="0">
+
+			<pp id="BMS0501" name="电池报文列表" url="api/batterydatagrammanager/toList"
+				accesstype="batterydatagrammanager" description="" loadtype="0" pptype="1">
+			</pp>
+
+		</pp>
+
+	</pp>
+</pps>	

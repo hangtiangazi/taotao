@@ -8,7 +8,6 @@
     <modelVersion>4.0.0</modelVersion>
     <artifactId>taotao-admin-manager</artifactId>
     <packaging>war</packaging>
-
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
@@ -16,6 +15,32 @@
             <version>3.8.1</version>
             <scope>test</scope>
         </dependency>
+
+            <dependency>
+                <groupId>taotao</groupId>
+                <artifactId>taotao_logger</artifactId>
+            </dependency>
+
+
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>dubbo</artifactId>
+                <exclusions>
+                    <exclusion>
+                        <artifactId>spring</artifactId>
+                        <groupId>org.springframework</groupId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.zookeeper</groupId>
+                <artifactId>zookeeper</artifactId>
+            </dependency>
+            <dependency>
+                <groupId>com.github.sgroschupf</groupId>
+                <artifactId>zkclient</artifactId>
+                <version>0.1</version>
+            </dependency>
     </dependencies>
     <build>
         <finalName>taotao-admin</finalName>
