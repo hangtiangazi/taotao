@@ -9,7 +9,7 @@
       <module fileurl="file://$PROJECT_DIR$/taotao-data/taotao-data.iml" filepath="$PROJECT_DIR$/taotao-data/taotao-data.iml" />
       <module fileurl="file://$PROJECT_DIR$/taotao-module/taotao-module.iml" filepath="$PROJECT_DIR$/taotao-module/taotao-module.iml" />
       <module fileurl="file://$PROJECT_DIR$/taotao-service/taotao-service.iml" filepath="$PROJECT_DIR$/taotao-service/taotao-service.iml" />
-      <module fileurl="file://$PROJECT_DIR$/taotao-service/taotao-service-admin.iml" filepath="$PROJECT_DIR$/taotao-service/taotao-service-admin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/taotao-service/taotao-service-admin/taotao-service-admin.iml" filepath="$PROJECT_DIR$/taotao-service/taotao-service-admin/taotao-service-admin.iml" />
     </modules>
   </component>
 </project>

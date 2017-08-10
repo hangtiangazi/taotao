@@ -10,6 +10,7 @@
         <module name="taotao-common" />
         <module name="taotao-data" />
         <module name="taotao-module" />
+        <module name="taotao-service-admin" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -21,6 +22,8 @@
       <module name="taotao-data" target="1.7" />
       <module name="taotao-module" target="1.7" />
       <module name="taotao-service" target="1.7" />
+      <module name="taotao-service-admin" target="1.7" />
+      <module name="taotao-servicetaotao-service-admin" target="1.7" />
     </bytecodeTargetLevel>
   </component>
 </project>
