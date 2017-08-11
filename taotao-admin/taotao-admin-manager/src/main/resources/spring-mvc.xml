@@ -16,6 +16,8 @@
     <mvc:annotation-driven />
 
     <mvc:default-servlet-handler />
+    <mvc:resources location="/WEB-INF/js/" mapping="/js/**"/>
+    <mvc:resources location="/WEB-INF/css/" mapping="/css/**"/>
     <!-- 根据客户端的不同的请求决定不同的view进行响应, 如 /blog/1.json /blog/1.xml -->
     <bean
             class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
