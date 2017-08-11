@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
+	   xmlns="http://code.alibabatech.com/mvn/releases/com/alibaba/druid/"
 	xmlns:aop="http://www.springframework.org/schema/aop"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
 		http://www.springframework.org/schema/beans/spring-beans-4.1.xsd 
 		http://www.springframework.org/schema/tx 
 		http://www.springframework.org/schema/tx/spring-tx-4.1.xsd
@@ -42,7 +42,7 @@
 		<property name="logAbandoned" value="true" />
 	</bean>
 	
-	<bean id="mysqlJdbcTemplate" class="com.woasis.esbp.common.util.template.IJdbcTemplate">
+	<bean id="mysqlJdbcTemplate" class="taotao.common.util.template.IJdbcTemplate">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
 	
@@ -51,11 +51,11 @@
 		<property name="dataSource" ref="dataSource" />
 		<property name="configLocation" value="classpath:mybatis-config.xml"></property>
 		<!-- 自动扫描entity目录, 省掉Configuration.xml里的手工配置 -->
-		<property name="mapperLocations" value="classpath:com/woasis/esbp/bean/mapper/*.xml" />
+		<property name="mapperLocations" value="classpath:taotao/bean/mapper/*.xml" />
 	</bean>
 
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="basePackage" value="com.woasis.esbp.bean.dao.xml" />
+		<property name="basePackage" value="taotao.bean.dao.xml" />
 		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
 	</bean>
 
