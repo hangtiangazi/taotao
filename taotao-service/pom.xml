@@ -12,8 +12,6 @@
     <name>taotao-service Maven Webapp</name>
     <url>http://maven.apache.org</url>
     <modules>
-        <module>taotao-admin-manager</module>
-        <module>../taotao-servicetaotao-service-admin</module>
         <module>taotao-service-admin</module>
     </modules>
     <dependencies>

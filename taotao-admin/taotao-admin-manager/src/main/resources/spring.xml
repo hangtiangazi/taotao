@@ -24,7 +24,7 @@
 	<!--<bean class="com.woasis.iov.vnms.service.city.impl.CityServiceImpl"/>-->
 
 	<!--自动扫描含有@Service将其注入为bean -->
-	<context:component-scan base-package="taotao.taotao.service.admin" />
+	<context:component-scan base-package="taotao.service.admin" />
 
 	<import resource="spring-dubbo.xml"/>
 </beans>
