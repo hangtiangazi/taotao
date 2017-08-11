@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--suppress ALL -->
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
@@ -16,42 +17,57 @@
 
     <mvc:default-servlet-handler />
     <!-- 根据客户端的不同的请求决定不同的view进行响应, 如 /blog/1.json /blog/1.xml -->
-    <bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
-        <!-- 设置为true以忽略对Accept Header的支持 -->
+    <bean
+            class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
+        <!-- 设置为true以忽略对Accept Header的支持-->
         <property name="ignoreAcceptHeader" value="true" />
-        <!-- 在没有扩展名时即: "/user/1" 时的默认展现形式 -->
+        <!-- true，开启扩展名支持，false关闭支持 -->
+        <property name="favorPathExtension" value="false" />
+        <!-- 用于开启 /userinfo/123?format=json的支持 -->
+        <property name="favorParameter" value="true" />
+        <!--
+            在没有扩展名和参数时即: "/user/1" 时的默认展现形式
+        -->
         <property name="defaultContentType" value="text/html" />
 
-        <!-- 扩展名至mimeType的映射,即 /user.json => application/json -->
+        <!--
+            参数值至mimeType的映射,即 /rest?format=json json是key，application/json就是value
+            暂时只支持json和xml
+        -->
         <property name="mediaTypes">
             <map>
                 <entry key="json" value="application/json" />
                 <entry key="xml" value="application/xml" />
             </map>
         </property>
-        <!-- 用于开启 /userinfo/123?format=json 的支持 -->
-        <property name="favorParameter" value="false" />
+
         <property name="viewResolvers">
-            <list>
-                <bean class="org.springframework.web.servlet.view.BeanNameViewResolver" />
-                <bean
-                        class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-                    <property name="viewClass"
-                              value="org.springframework.web.servlet.view.JstlView" />
-                    <property name="prefix" value="/WEB-INF/pages/" />
-                    <property name="suffix" value=".jsp" />
-                </bean>
-            </list>
+            <!-- 关闭所有的解析器，防止它在查找候选视图时多个解析器都运行 -->
+            <list></list>
         </property>
+
         <property name="defaultViews">
             <list>
                 <!-- for application/json -->
-                <bean class="org.springframework.web.servlet.view.json.MappingJackson2JsonView" />
-                <!-- xml视图，XStreamMarshaller，可以转换任何形式的java对象 -->
+                <bean
+                        class="org.springframework.web.servlet.view.json.MappingJacksonJsonView">
+                    <property name="objectMapper">
+                        <bean class="org.codehaus.jackson.map.ObjectMapper">
+                            <!--
+                                设置objectMapper的serializationConfig的serializationInclusion属性，以忽略null对象
+                            -->
+                            <property name="serializationConfig.serializationInclusion">
+                                <value
+                                        type="org.codehaus.jackson.map.annotate.JsonSerialize.Inclusion">NON_NULL</value>
+                            </property>
+                        </bean>
+                    </property>
+                </bean>
+                <!-- for application/xml -->
                 <bean class="org.springframework.web.servlet.view.xml.MarshallingView">
                     <property name="marshaller">
-                        <bean class="org.springframework.oxm.xstream.XStreamMarshaller">
-                            <property name="autodetectAnnotations" value="true" />
+                        <bean class="org.springframework.oxm.castor.CastorMarshaller">
+                            <property name="validating" value="false"></property>
                         </bean>
                     </property>
                 </bean>
@@ -74,7 +90,7 @@
         </property>
     </bean>
 
-    <bean class="com.woasis.esbp.initialization.InitDataListener"></bean>
-    <bean id="batteryService" class="com.woasis.iov.vnms.util.SpringContextUtils"></bean>
+   <!-- <bean class="com.woasis.esbp.initialization.InitDataListener"></bean>
+    <bean id="batteryService" class="com.woasis.iov.vnms.util.SpringContextUtils"></bean>-->
 
 </beans>

@@ -45,5 +45,6 @@
       </library>
     </orderEntry>
     <orderEntry type="library" name="RepMaven" level="project" />
+    <orderEntry type="library" name="RepMaven1" level="project" />
   </component>
 </module>
